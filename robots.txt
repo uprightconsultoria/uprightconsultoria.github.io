@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://prumoconsultoria.github.io/upright/sitemap.xml
+Sitemap: https://uprightconsultoria.github.io/sitemap.xml
