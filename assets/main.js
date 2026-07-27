@@ -1,11 +1,16 @@
 // TINO — shared behavior
 const bg = document.getElementById('bg'), nl = document.getElementById('nl');
 if (bg && nl) {
-  bg.addEventListener('click', () => {
-    const open = nl.classList.toggle('show');
+  const setMenu = open => {
+    nl.classList.toggle('show', open);
+    document.body.classList.toggle('nav-open', open);
+    bg.setAttribute('aria-expanded', open);
     bg.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-  });
-  nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nl.classList.remove('show')));
+  };
+  bg.setAttribute('aria-expanded', 'false');
+  bg.addEventListener('click', () => setMenu(!nl.classList.contains('show')));
+  nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 }
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
