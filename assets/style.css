@@ -390,8 +390,33 @@ footer .logo{color:#fff;margin-bottom:16px}
 .dv p{color:var(--muted);font-size:.92rem;margin-top:6px;line-height:1.5}
 @media(max-width:760px){.deliver{grid-template-columns:1fr}}
 
+/* ===== CERTIFICAÇÕES (mensalidade) ===== */
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.cert{background:var(--panel);border-radius:var(--r);padding:34px 32px 32px;box-shadow:var(--sh);
+      display:flex;flex-direction:column;position:relative;transition:transform .4s var(--e),box-shadow .4s var(--e)}
+.cert:hover{transform:translateY(-6px);box-shadow:var(--sh-up)}
+.cert.feat{background:var(--dark);color:#fff}
+.cert.feat .idx b,.cert.feat h3{color:#fff}
+.cert h3{font-size:1.22rem;letter-spacing:-.02em;margin-top:10px}
+.cert>p{color:var(--muted);font-size:.94rem;margin-top:12px;line-height:1.55}
+.cert.feat>p{color:rgba(255,255,255,.72)}
+.cert ul{list-style:none;margin:22px 0 26px;display:grid;gap:11px}
+.cert li{font-size:.92rem;color:var(--ink-2);padding-left:24px;position:relative;line-height:1.45}
+.cert li::before{content:"";position:absolute;left:0;top:7px;width:13px;height:7px;border-left:2px solid var(--verde);
+                 border-bottom:2px solid var(--verde);transform:rotate(-45deg)}
+.cert.feat li{color:rgba(255,255,255,.86)}
+.cert.feat li::before{border-color:var(--lime-2)}
+.cpreco{margin-top:auto;padding-top:20px;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:9px}
+.cert.feat .cpreco{border-top-color:var(--line-d)}
+.cpreco b{font-family:var(--disp);font-weight:800;font-size:1.9rem;letter-spacing:-.03em;color:var(--ink)}
+.cert.feat .cpreco b{color:var(--lime-2)}
+.cpreco span{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.cert.feat .cpreco span{color:rgba(255,255,255,.6)}
+.cert .btn{margin-top:18px;justify-content:center;width:100%}
+@media(max-width:940px){.certs{grid-template-columns:1fr}.cert.feat{order:-1}}
+
 /* ===== TEAM ===== */
-.team{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .tmember{background:var(--panel);border-radius:var(--r);padding:32px 30px;box-shadow:var(--sh);transition:transform .4s var(--e),box-shadow .4s var(--e)}
 .tmember:hover{transform:translateY(-6px);box-shadow:var(--sh-up)}
 .tavatar{width:78px;height:78px;border-radius:20px;overflow:hidden;background:linear-gradient(150deg,var(--dark),var(--dark-2));display:flex;align-items:center;justify-content:center;margin-bottom:22px}
@@ -400,4 +425,5 @@ footer .logo{color:#fff;margin-bottom:16px}
 .tmember h3{font-size:1.22rem;letter-spacing:-.02em}
 .tmember .role{font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--verde);margin-top:5px}
 .tmember p{color:var(--muted);font-size:.94rem;margin-top:14px;line-height:1.55}
-@media(max-width:940px){.team{grid-template-columns:1fr}}
+@media(max-width:1080px){.team{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.team{grid-template-columns:1fr}}
