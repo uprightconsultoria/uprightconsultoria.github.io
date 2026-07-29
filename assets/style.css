@@ -390,6 +390,17 @@ footer .logo{color:#fff;margin-bottom:16px}
 .dv p{color:var(--muted);font-size:.92rem;margin-top:6px;line-height:1.5}
 @media(max-width:760px){.deliver{grid-template-columns:1fr}}
 
+.riscozero{margin-top:14px;font-size:.86rem;color:var(--muted);line-height:1.5}
+.ctaband .riscozero,.faixa .riscozero{color:rgba(255,255,255,.6)}
+
+/* ===== ÂNCORA DE VALOR (reversão de risco) ===== */
+.ancora{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+.ancora .ai{background:var(--lime);border-radius:var(--r);padding:26px 28px;border-left:3px solid var(--verde)}
+.ancora .ai b{display:block;font-family:var(--disp);font-weight:700;font-size:1.02rem;
+              line-height:1.35;letter-spacing:-.01em;color:var(--verde-ink)}
+.ancora .ai span{display:block;font-size:.92rem;color:var(--ink-2);margin-top:10px;line-height:1.5}
+@media(max-width:940px){.ancora{grid-template-columns:1fr}}
+
 /* ===== CERTIFICAÇÕES (mensalidade) ===== */
 .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
 .cert{background:var(--panel);border-radius:var(--r);padding:34px 32px 32px;box-shadow:var(--sh);
