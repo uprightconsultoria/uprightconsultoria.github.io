@@ -79,8 +79,13 @@ if (cf) cf.addEventListener('submit', ev => {
 
 /* ===== medição de conversão (GA4) ===== */
 (function () {
+  // dispara no GA4 e no Pixel da Meta com um só chamado
+  const META = { generate_lead: 'Lead', view_pricing: 'ViewContent', view_certificacoes: 'ViewContent' };
   const ga = (nome, dados) => {
     if (typeof gtag === 'function') gtag('event', nome, dados || {});
+    if (typeof fbq === 'function' && META[nome]) {
+      fbq('track', META[nome], Object.assign({ content_name: nome }, dados || {}));
+    }
   };
 
   // clique em qualquer CTA de WhatsApp — é o lead de verdade
