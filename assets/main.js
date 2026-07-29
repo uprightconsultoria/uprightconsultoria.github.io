@@ -75,3 +75,45 @@ if (cf) cf.addEventListener('submit', ev => {
   const msg = `Olá! Sou ${d.get('nome')} (${d.get('empresa')}). ${d.get('mensagem') || 'Quero agendar uma reunião diagnóstica.'}`;
   window.open('https://wa.me/5571996921513?text=' + encodeURIComponent(msg), '_blank', 'noopener');
 });
+
+
+/* ===== medição de conversão (GA4) ===== */
+(function () {
+  const ga = (nome, dados) => {
+    if (typeof gtag === 'function') gtag('event', nome, dados || {});
+  };
+
+  // clique em qualquer CTA de WhatsApp — é o lead de verdade
+  document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+    a.addEventListener('click', () => {
+      const ondeEstou = document.body.dataset.pagina || location.pathname;
+      ga('generate_lead', {
+        method: 'whatsapp',
+        link_text: (a.innerText || '').trim().slice(0, 60),
+        page_location: ondeEstou
+      });
+    });
+  });
+
+  // envio do formulário de contato
+  const form = document.getElementById('cform');
+  if (form) form.addEventListener('submit', () => ga('generate_lead', { method: 'formulario' }));
+
+  // interesse em preço: chegou até o bloco de planos ou de certificações
+  const alvos = [
+    ['planos', 'view_pricing'],
+    ['certificacoes', 'view_certificacoes']
+  ];
+  alvos.forEach(([id, evento]) => {
+    const el = document.getElementById(id);
+    if (!el || !('IntersectionObserver' in window)) return;
+    // threshold 0: as seções de preço são mais altas que a tela do celular,
+    // então exigir uma fração delas visível nunca dispararia
+    const obs = new IntersectionObserver(entradas => {
+      entradas.forEach(e => {
+        if (e.isIntersecting) { ga(evento); obs.disconnect(); }
+      });
+    }, { threshold: 0, rootMargin: '-80px 0px -80px 0px' });
+    obs.observe(el);
+  });
+})();
