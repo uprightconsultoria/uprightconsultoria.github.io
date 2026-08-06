@@ -208,6 +208,10 @@ footer .logo{color:#fff;margin-bottom:16px}
 .nap b{display:block;color:#fff;font-weight:600;font-size:.93rem;margin-bottom:4px}
 .nap span{display:block;color:rgba(255,255,255,.55);font-size:.86rem;margin-bottom:10px}
 .nap a{word-break:break-word}
+.fsetores{padding-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;font-size:.85rem}
+.fsetores span{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime-2)}
+.fsetores a{color:rgba(255,255,255,.6);transition:color .25s}
+.fsetores a:hover{color:#fff}
 .fb{padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:rgba(255,255,255,.42);font-size:.82rem}
 .fb .sig{font-family:var(--mono)}
 
