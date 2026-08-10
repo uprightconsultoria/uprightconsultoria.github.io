@@ -72,7 +72,9 @@ const cf = document.getElementById('cform');
 if (cf) cf.addEventListener('submit', ev => {
   ev.preventDefault();
   const d = new FormData(cf);
-  const msg = `Olá! Sou ${d.get('nome')} (${d.get('empresa')}). ${d.get('mensagem') || 'Quero agendar uma reunião diagnóstica.'}`;
+  const msg = `Olá! Sou ${d.get('nome')}, ${d.get('cargo')} na ${d.get('empresa')}. `
+            + `Isso acontece há: ${d.get('tempo')}. `
+            + `${d.get('mensagem') || 'Quero agendar os 45 minutos.'}`;
   window.open('https://wa.me/15126216866?text=' + encodeURIComponent(msg), '_blank', 'noopener');
 });
 
