@@ -50,6 +50,44 @@ document.querySelectorAll('.fq').forEach(q => q.addEventListener('click', () => 
   if (!open) { it.classList.add('open'); fa.style.maxHeight = fa.scrollHeight + 'px'; }
 }));
 
+// abas de serviços — só ligam se o JS rodar; sem JS a página continua rolando inteira
+document.querySelectorAll('.svwrap').forEach(w => {
+  const tabs = [...w.querySelectorAll('.svtab')];
+  const pans = [...w.querySelectorAll('.svpanel')];
+  if (!tabs.length || !pans.length) return;
+  w.classList.add('js');
+
+  const abrir = (i, focar) => {
+    tabs.forEach((t, n) => {
+      t.classList.toggle('active', n === i);
+      t.setAttribute('aria-selected', n === i);
+      t.tabIndex = n === i ? 0 : -1;
+    });
+    pans.forEach((p, n) => p.classList.toggle('active', n === i));
+    // o painel estava escondido: o IntersectionObserver nunca revelaria o conteúdo
+    pans[i].querySelectorAll('.r').forEach(el => el.classList.add('in'));
+    if (focar) tabs[i].focus();
+  };
+
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => {
+      abrir(i);
+      history.replaceState(null, '', '#' + pans[i].id);
+    });
+    t.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      abrir((i + d + tabs.length) % tabs.length, true);
+    });
+  });
+
+  // link externo com âncora (ex.: servicos.html#ferramentas) abre a aba certa
+  const alvo = pans.findIndex(p => '#' + p.id === location.hash);
+  abrir(alvo > -1 ? alvo : 0);
+  if (alvo > 0) w.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
 // rotating proof card (hero)
 const rot = document.querySelector('.proofrot');
 if (rot) {

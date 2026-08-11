@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=15">
+<link rel="stylesheet" href="assets/style.css?v=16">
 </head>
 <body>
 <nav aria-label="Navegação principal"><div class="nav-shell"><div class="nav-in">
@@ -43,11 +43,20 @@
 <header class="phead"><div class="wrap">
   <span class="idx r in"><b>Serviços</b> — o que você recebe e quanto custa</span>
   <h1 class="r d1 in">Escolha por onde a sua estrutura <span class="hl">começa</span>.</h1>
-  <p class="lead r d2 in">Quatro frentes de atuação e três planos com preço aberto. Abaixo você vê exatamente o que está incluído em cada um — sem caixa-preta e sem "sob consulta".</p>
+  <p class="lead r d2 in">Quatro frentes de atuação e três planos com preço aberto. Escolha a frente nas abas abaixo e veja exatamente o que está incluído — sem caixa-preta e sem "sob consulta".</p>
 </div></header>
 
 <section class="sec" style="padding-top:40px"><div class="wrap">
+  <div class="svwrap">
 
+  <div class="svtabs" role="tablist" aria-label="Frentes de atuação">
+    <button class="svtab active" role="tab" id="tab-processos" aria-controls="fr-processos" aria-selected="true"><b>/01</b> Gestão &amp; Processos</button>
+    <button class="svtab" role="tab" id="tab-pessoas" aria-controls="fr-pessoas" aria-selected="false"><b>/02</b> Pessoas &amp; Lideranças</button>
+    <button class="svtab" role="tab" id="tab-esg" aria-controls="fr-esg" aria-selected="false"><b>/03</b> ESG, LGPD &amp; Compliance</button>
+    <button class="svtab" role="tab" id="tab-ferramentas" aria-controls="ferramentas" aria-selected="false"><b>/04</b> Ferramentas sob medida</button>
+  </div>
+
+  <div class="svpanel active" id="fr-processos" role="tabpanel" aria-labelledby="tab-processos">
   <div class="srow r">
     <div>
       <span class="idx"><b>/01</b> — FRENTE</span>
@@ -73,6 +82,9 @@
     </div>
   </div>
 
+  </div>
+
+  <div class="svpanel" id="fr-pessoas" role="tabpanel" aria-labelledby="tab-pessoas">
   <div class="srow flip r">
     <div>
       <span class="idx"><b>/02</b> — FRENTE</span>
@@ -98,6 +110,9 @@
     </div>
   </div>
 
+  </div>
+
+  <div class="svpanel" id="fr-esg" role="tabpanel" aria-labelledby="tab-esg">
   <div class="srow r">
     <div>
       <span class="idx"><b>/03</b> — FRENTE</span>
@@ -123,7 +138,10 @@
     </div>
   </div>
 
-  <div class="srow flip r" id="ferramentas">
+  </div>
+
+  <div class="svpanel" id="ferramentas" role="tabpanel" aria-labelledby="tab-ferramentas">
+  <div class="srow flip r">
     <div>
       <span class="idx"><b>/04</b> — FRENTE</span>
       <h2 style="margin-top:12px">Ferramentas sob medida</h2>
@@ -148,7 +166,9 @@
       </div>
     </div>
   </div>
+  </div>
 
+  </div>
 </div></section>
 
 <section class="sec" style="padding-top:0" id="certificacoes">
@@ -302,6 +322,6 @@
     <div class="fb"><span>© 2026 Upright Consultoria. Todos os direitos reservados. · <a href="privacidade.html" style="color:inherit">Política de Privacidade</a> · <a href="#" data-cookies style="color:inherit">Preferências de cookies</a></span><span class="sig">upright — no prumo, íntegro, alinhado</span></div>
   </div>
 </footer>
-<script src="assets/main.js?v=5"></script>
+<script src="assets/main.js?v=6"></script>
 </body>
 </html>
