@@ -164,6 +164,8 @@ nav{position:fixed;top:16px;left:0;right:0;z-index:50}
 .slist{list-style:none;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:12px 22px}
 .slist li{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;color:var(--ink-2)}
 .slist li svg{width:17px;height:17px;stroke:var(--verde);flex-shrink:0;margin-top:3px}
+.card.dark .slist li{color:rgba(255,255,255,.78)}
+.card.dark .slist li svg{stroke:var(--lime-2)}
 
 /* ===== CTA BAND ===== */
 .ctaband{background:var(--dark);border-radius:var(--r-lg);padding:72px 64px;position:relative;overflow:hidden;color:#fff}
