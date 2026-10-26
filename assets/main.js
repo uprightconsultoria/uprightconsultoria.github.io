@@ -126,6 +126,8 @@ if (cf) cf.addEventListener('submit', ev => {
     if (typeof fbq === 'function' && META[nome]) {
       fbq('track', META[nome], Object.assign({ content_name: nome }, dados || {}));
     }
+    // marca o momento na gravação do Clarity, para filtrar sessões por evento
+    if (typeof clarity === 'function') clarity('event', nome);
   };
 
   // clique em qualquer CTA de WhatsApp — é o lead de verdade
@@ -161,4 +163,86 @@ if (cf) cf.addEventListener('submit', ev => {
     }, { threshold: 0, rootMargin: '-80px 0px -80px 0px' });
     obs.observe(el);
   });
+
+  /* ===== onde o visitante parou ===== */
+
+  // nome legível de cada seção: id, senão o primeiro título, senão a posição
+  const secoes = Array.from(document.querySelectorAll('main section, body > section'));
+  const nomeDa = (s, i) => {
+    if (s.id) return s.id;
+    const t = s.querySelector('h1, h2, h3');
+    const txt = t ? t.innerText.trim().toLowerCase().replace(/\s+/g, ' ').slice(0, 40) : '';
+    return txt || 'secao-' + (i + 1);
+  };
+  let ultimaSecao = secoes.length ? nomeDa(secoes[0], 0) : '';
+  const vistas = new Set();
+  // a seção que ocupa mais espaço na tela é a que a pessoa está lendo
+  const medirSecao = () => {
+    let i = -1, maior = 0;
+    secoes.forEach((s, j) => {
+      const r = s.getBoundingClientRect();
+      const px = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+      if (px > maior) { maior = px; i = j; }
+    });
+    if (i < 0) return;
+    ultimaSecao = nomeDa(secoes[i], i);
+    if (vistas.has(i)) return;
+    vistas.add(i);
+    ga('section_view', { section_name: ultimaSecao, section_index: i + 1 });
+  };
+
+  // profundidade de rolagem em 25/50/75/90% (o GA4 sozinho só mede 90%)
+  const marcos = [25, 50, 75, 90];
+  let rolagemMax = 0;
+  const medirRolagem = () => {
+    medirSecao();
+    const alto = document.documentElement.scrollHeight - innerHeight;
+    if (alto <= 0) return;
+    const pct = Math.round(scrollY / alto * 100);
+    if (pct <= rolagemMax) return;
+    marcos.filter(m => m > rolagemMax && m <= pct).forEach(m => ga('scroll_depth', { percent_scrolled: m }));
+    rolagemMax = pct;
+  };
+  addEventListener('scroll', medirRolagem, { passive: true });
+  medirSecao();
+
+  // cliques em CTAs que não são WhatsApp (ver planos, serviços, diagnóstico...)
+  document.querySelectorAll('a.btn:not([href*="wa.me"])').forEach(a => {
+    a.addEventListener('click', () => ga('cta_click', {
+      link_text: (a.innerText || '').trim().slice(0, 60),
+      link_url: a.getAttribute('href')
+    }));
+  });
+
+  // formulário: começou, em qual campo parou, e se abandonou
+  let formIniciado = false, formEnviado = false, ultimoCampo = '';
+  if (form) {
+    form.addEventListener('focusin', ev => {
+      const campo = ev.target.name;
+      if (!campo) return;
+      ultimoCampo = campo;
+      if (!formIniciado) { formIniciado = true; ga('form_start', { form_id: form.id }); }
+    });
+    form.addEventListener('submit', () => { formEnviado = true; });
+  }
+
+  // ao sair da página: registra até onde chegou (dispara uma vez só)
+  let saiu = false;
+  const aoSair = () => {
+    if (saiu) return;
+    saiu = true;
+    if (typeof gtag === 'function') {
+      gtag('event', 'page_exit', {
+        last_section: ultimaSecao,
+        sections_viewed: vistas.size,
+        max_scroll: Math.min(rolagemMax, 100),
+        transport_type: 'beacon'
+      });
+      if (formIniciado && !formEnviado) {
+        gtag('event', 'form_abandon', { form_id: form.id, last_field: ultimoCampo, transport_type: 'beacon' });
+      }
+    }
+  };
+  addEventListener('pagehide', aoSair);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') aoSair(); });
 })();

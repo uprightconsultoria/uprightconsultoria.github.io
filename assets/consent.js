@@ -1,10 +1,11 @@
 /* Consentimento de cookies — Upright
    Carregado no <head>, antes de qualquer medição.
    Google: Consent Mode v2, tudo negado por padrão.
-   Meta Pixel: só é carregado depois do aceite. */
+   Meta Pixel e Microsoft Clarity: só são carregados depois do aceite. */
 (function () {
   var GA = 'G-LG43W42N90';
   var PIXEL = '1358876479055288';
+  var CLARITY = 'z3k67nat03';
   var CHAVE = 'upright_consent';
   var VALIDADE = 180 * 864e5; // 6 meses
 
@@ -54,7 +55,25 @@
     fbq('track', 'PageView');
   }
 
-  if (ler() === 'granted') carregarPixel();
+  // Microsoft Clarity: gravação de sessão e mapa de calor, também só depois do aceite
+  var clarityPronto = false;
+  function carregarClarity() {
+    if (clarityPronto) return;
+    clarityPronto = true;
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', CLARITY);
+    clarity('consent');
+  }
+
+  function carregarMedicao() {
+    carregarPixel();
+    carregarClarity();
+  }
+
+  if (ler() === 'granted') carregarMedicao();
 
   var banner = null;
 
@@ -72,7 +91,7 @@
       ad_personalization: 'granted',
       analytics_storage: 'granted'
     });
-    carregarPixel();
+    carregarMedicao();
     fechar();
   }
 
