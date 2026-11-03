@@ -110,7 +110,11 @@ const cf = document.getElementById('cform');
 if (cf) cf.addEventListener('submit', ev => {
   ev.preventDefault();
   const d = new FormData(cf);
-  const msg = `Olá! Sou ${d.get('nome')}, ${d.get('cargo')} na ${d.get('empresa')}. `
+  // na página de anúncio, a mensagem diz de qual criativo a pessoa veio
+  const ref = new URLSearchParams(location.search).get('utm_content');
+  const origem = document.body.dataset.pagina === 'anuncio'
+    ? `Vim pelo anúncio da Upright${ref ? ' (' + ref + ')' : ''}. ` : '';
+  const msg = `Olá! ${origem}Sou ${d.get('nome')}, ${d.get('cargo')} na ${d.get('empresa')}. `
             + `Isso acontece há: ${d.get('tempo')}. `
             + `${d.get('mensagem') || 'Quero agendar os 45 minutos.'}`;
   window.open('https://wa.me/15126216866?text=' + encodeURIComponent(msg), '_blank', 'noopener');
@@ -120,11 +124,14 @@ if (cf) cf.addEventListener('submit', ev => {
 /* ===== medição de conversão (GA4) ===== */
 (function () {
   // dispara no GA4 e no Pixel da Meta com um só chamado
-  const META = { generate_lead: 'Lead', view_pricing: 'ViewContent', view_certificacoes: 'ViewContent' };
-  const ga = (nome, dados) => {
+  // Meta: "Lead" fica reservado ao formulário de decisor (é por ele que a campanha otimiza);
+  // clique em WhatsApp e formulário de outros cargos viram "Contact".
+  const META = { generate_lead: 'Contact', qualified_lead: 'Lead', view_pricing: 'ViewContent', view_certificacoes: 'ViewContent' };
+  const ga = (nome, dados, metaEvento) => {
     if (typeof gtag === 'function') gtag('event', nome, dados || {});
-    if (typeof fbq === 'function' && META[nome]) {
-      fbq('track', META[nome], Object.assign({ content_name: nome }, dados || {}));
+    const ev = metaEvento === undefined ? META[nome] : metaEvento;
+    if (typeof fbq === 'function' && ev) {
+      fbq('track', ev, Object.assign({ content_name: nome }, dados || {}));
     }
     // marca o momento na gravação do Clarity, para filtrar sessões por evento
     if (typeof clarity === 'function') clarity('event', nome);
@@ -144,7 +151,16 @@ if (cf) cf.addEventListener('submit', ev => {
 
   // envio do formulário de contato
   const form = document.getElementById('cform');
-  if (form) form.addEventListener('submit', () => ga('generate_lead', { method: 'formulario' }));
+  // decisor = sócio, diretor ou gerente-geral; só ele conta como lead qualificado
+  const DECISORES = ['Sócio(a) ou proprietário(a)', 'Diretor(a)', 'Gerente-geral'];
+  if (form) form.addEventListener('submit', () => {
+    const cargo = (form.querySelector('[name="cargo"]') || {}).value || '';
+    const tempo = (form.querySelector('[name="tempo"]') || {}).value || '';
+    const pagina = document.body.dataset.pagina || location.pathname;
+    const qualificado = DECISORES.includes(cargo);
+    ga('generate_lead', { method: 'formulario', cargo, page_location: pagina }, qualificado ? null : 'Contact');
+    if (qualificado) ga('qualified_lead', { cargo, tempo, page_location: pagina });
+  });
 
   // interesse em preço: chegou até o bloco de planos ou de certificações
   const alvos = [
