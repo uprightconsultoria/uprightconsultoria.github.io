@@ -715,3 +715,13 @@ main a,.sec p a,.sec li a,.sec td{overflow-wrap:anywhere}
 .findgrid li::before{content:"";position:absolute;left:22px;top:26px;width:12px;height:12px;border-radius:3px;background:var(--verde)}
 @media(max-width:900px){.findgrid{grid-template-columns:1fr}}
 .deliver .dv h4{font-size:1.05rem}
+/* resultado real: versão leve (fundo claro, sem grade) */
+.proof{background:var(--panel);background-image:none;color:var(--ink);box-shadow:var(--sh);border-left:4px solid var(--verde)}
+.proof .kicker{color:var(--ink-2)}
+.proof .kicker::before{background:var(--verde)}
+.proof-num{color:var(--verde)}
+.proof-num span{color:var(--lime-2)}
+.proof-lbl{color:var(--ink-2)}
+.proof h2{color:var(--ink)}
+.proof p{color:var(--ink-2)}
+.proof .proof-note{color:var(--muted)}
