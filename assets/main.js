@@ -120,6 +120,8 @@ if (cf) cf.addEventListener('submit', ev => {
             + (d.get('plano') ? `Plano de interesse: ${d.get('plano')}. ` : '')
             + (d.get('tempo') ? `Isso acontece há: ${d.get('tempo')}. ` : '')
             + (d.get('dependencia') ? `Quanto a operação depende de mim: ${d.get('dependencia')}. ` : '')
+            + (d.get('funcionarios') ? `Funcionários: ${d.get('funcionarios')}. ` : '')
+            + (d.get('desafio') ? `Principal desafio: ${d.get('desafio')}. ` : '')
             + `${d.get('mensagem') || 'Quero agendar os 45 minutos.'}`;
   window.open('https://wa.me/15126216866?text=' + encodeURIComponent(msg), '_blank', 'noopener');
 });

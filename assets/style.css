@@ -671,3 +671,47 @@ h1 .hl,h2 .hl{font-family:var(--disp);font-style:normal;font-weight:600;letter-s
 .idx,.kicker{font-family:var(--mono);letter-spacing:.06em}
 .hxc small{font-family:var(--mono)}
 .phead .ameta{color:rgba(255,255,255,.82)}
+
+/* ===== UMA FONTE SÓ NO SITE: Sora em títulos, texto e etiquetas ===== */
+:root{--disp:"Sora",system-ui,sans-serif;--body:"Sora",system-ui,sans-serif;--mono:"Sora",system-ui,sans-serif}
+body{font-size:16px;line-height:1.65}
+.idx,.kicker,.hxchip,.hxbadge,.ameta,.tstrip .ti{letter-spacing:.01em}
+.kicker{text-transform:none;font-size:.82rem}
+.btn,input,select,textarea,button{font-family:var(--body)}
+
+/* fundadora: foto menor, formação em tópicos */
+.founder.f2{grid-template-columns:260px 1fr;gap:56px;align-items:start}
+.founder.f2 .fportrait{max-width:260px}
+.fform{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.fform li{background:var(--bg);border-radius:var(--r);padding:14px 16px;border-left:3px solid var(--verde)}
+.fform b{display:block;font-weight:600;color:var(--ink);font-size:.95rem}
+.fform span{display:block;color:var(--ink-2);font-size:.86rem;margin-top:4px;line-height:1.45}
+@media(max-width:900px){.founder.f2{grid-template-columns:1fr;gap:28px}.founder.f2 .fportrait{max-width:180px}.fform{grid-template-columns:1fr}}
+/* links e endereços longos quebram a linha em vez de vazar no celular */
+main a,.sec p a,.sec li a,.sec td{overflow-wrap:anywhere}
+/* hero com 4 diferenciais em 2x2 */
+.hxf4{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;max-width:560px}
+.hxf4 div{font-size:.92rem}
+.hxc small{font-family:var(--body);font-size:.86rem;opacity:.9;align-self:flex-start}
+/* resultado real em destaque */
+.proof{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center;background:var(--dark);background-image:var(--grid),linear-gradient(135deg,#1A0A4F,#2E12A0);background-size:56px 56px,auto;border-radius:var(--r-lg);padding:56px;color:#fff}
+.proof .kicker{color:rgba(255,255,255,.8)}
+.proof .kicker::before{background:var(--lime-2)}
+.proof-num{font-family:var(--disp);font-weight:700;font-size:clamp(3rem,6vw,5.2rem);letter-spacing:-.05em;line-height:1;margin-top:14px}
+.proof-num span{color:var(--lime-2)}
+.proof-lbl{margin-top:10px;color:rgba(255,255,255,.85)}
+.proof h2{color:#fff;font-size:clamp(1.7rem,3vw,2.4rem)}
+.proof p{color:rgba(255,255,255,.88);margin-top:14px}
+.proof .proof-note{font-size:.84rem;color:rgba(255,255,255,.7)}
+@media(max-width:900px){.hxf4{grid-template-columns:1fr 1fr;gap:14px}.hxf4 div{flex-direction:row;align-items:center;font-size:.82rem}.proof{grid-template-columns:1fr;gap:24px;padding:32px 24px}}
+.gain{margin-top:10px;font-size:.92rem;font-weight:500;color:var(--verde)}
+.card.dark .gain{color:var(--lime-2)}
+.tagline{font-family:var(--disp);font-weight:600;font-size:1.12rem;color:var(--verde);margin-top:8px;letter-spacing:-.01em}
+.src{text-align:center;font-size:.82rem;color:var(--muted);margin-top:8px}
+.src a{text-decoration:underline}
+.ancora .ai span a{text-decoration:underline}
+.findgrid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.findgrid li{background:var(--panel);border-radius:var(--r);padding:20px 22px 20px 48px;box-shadow:var(--sh);position:relative;font-weight:500;color:var(--ink)}
+.findgrid li::before{content:"";position:absolute;left:22px;top:26px;width:12px;height:12px;border-radius:3px;background:var(--verde)}
+@media(max-width:900px){.findgrid{grid-template-columns:1fr}}
+.deliver .dv h4{font-size:1.05rem}
