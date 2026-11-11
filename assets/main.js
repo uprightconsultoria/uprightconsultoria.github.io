@@ -112,10 +112,13 @@ if (cf) cf.addEventListener('submit', ev => {
   const d = new FormData(cf);
   // na página de anúncio, a mensagem diz de qual criativo a pessoa veio
   const ref = new URLSearchParams(location.search).get('utm_content');
-  const origem = document.body.dataset.pagina === 'anuncio'
-    ? `Vim pelo anúncio da Upright${ref ? ' (' + ref + ')' : ''}. ` : '';
+  const pag = document.body.dataset.pagina;
+  const tag = ref ? ' (' + ref + ')' : '';
+  const origem = pag === 'anuncio' ? `Vim pelo anúncio da Upright${tag}. `
+               : pag === 'black-friday' ? `Vim pela Black Friday da Upright${tag} e quero garantir os 40% de desconto. ` : '';
   const msg = `Olá! ${origem}Sou ${d.get('nome')}, ${d.get('cargo')} na ${d.get('empresa')}. `
-            + `Isso acontece há: ${d.get('tempo')}. `
+            + (d.get('plano') ? `Plano de interesse: ${d.get('plano')}. ` : '')
+            + (d.get('tempo') ? `Isso acontece há: ${d.get('tempo')}. ` : '')
             + `${d.get('mensagem') || 'Quero agendar os 45 minutos.'}`;
   window.open('https://wa.me/15126216866?text=' + encodeURIComponent(msg), '_blank', 'noopener');
 });

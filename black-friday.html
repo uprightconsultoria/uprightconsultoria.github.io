@@ -6,6 +6,7 @@
 <title>Black Friday Upright: 40% de desconto em consultoria empresarial</title>
 <meta name="description" content="Até 30 de novembro, os planos de consultoria empresarial da Upright saem com 40% de desconto. Gestão, processos e pessoas da sua empresa estruturados, parcelados em até 12x.">
 <meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#08080C">
 <script src="assets/consent.js?v=2"></script>
 <link rel="canonical" href="https://uprightconsultoria.com.br/black-friday.html">
 <meta property="og:type" content="website">
@@ -26,240 +27,265 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Quicksand:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --canvas:#F4F4F5;--surface:#FFFFFF;--ink:#0B0B12;--ink-2:#3F3F46;--muted:#71717A;--line:rgba(24,24,27,.10);
-  --night:#0B0B12;--on-night:#F4F4F5;--on-night-2:#C9C6DA;
-  --accent:#6331FB;--accent-ink:#4F22E0;--lilac:#B9A4FF;--violet-1:#1A0A4F;--violet-2:#2E12A0;--violet-3:#4B22D6;
-  --display:"Geist",system-ui,sans-serif;--serif:"Instrument Serif",serif;--mono:"Geist Mono",ui-monospace,monospace;--brand:"Quicksand",system-ui,sans-serif;
+  /* preto de Black Friday + roxo da marca só como destaque */
+  --bg:#08080C;          /* fundo da página */
+  --bg-2:#111118;        /* blocos */
+  --bg-3:#191922;        /* campos */
+  --line:rgba(255,255,255,.09);
+  --text:#F4F4F5;
+  --text-2:#B4B4BF;      /* apoio */
+  --text-3:#8C8C99;      /* metadados */
+  --brand:#6331FB;       /* roxo Upright: botão, número, destaques */
+  --brand-ink:#7A52FF;   /* hover */
+  --brand-soft:#B9A4FF;  /* palavra em itálico, selos */
+  --white:#FFFFFF;
+  --display:"Geist",system-ui,sans-serif;--serif:"Instrument Serif",serif;--mono:"Geist Mono",ui-monospace,monospace;--logo:"Quicksand",system-ui,sans-serif;
   --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:48px;--s6:64px;--s7:96px;--s8:128px;
-  --gut:clamp(20px,4.5vw,64px);--r:18px;--r-lg:28px;--pill:999px;--spring:cubic-bezier(.2,.9,.25,1);
+  --gut:clamp(20px,4.5vw,64px);--r:16px;--r-lg:24px;--pill:999px;--spring:cubic-bezier(.2,.9,.25,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--display);font-size:17px;line-height:1.6;color:var(--ink);background:var(--canvas);-webkit-font-smoothing:antialiased;overflow-x:clip}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{font-family:var(--display);font-size:17px;line-height:1.6;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 .wrap{max-width:1320px;margin:0 auto;padding:0 var(--gut)}
-.serif{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
-.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.02em;color:var(--muted)}
-.btn{border:0;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:var(--pill);background:var(--accent);color:var(--surface);font-weight:600;font-size:1rem;transition:transform .5s var(--spring),background .3s}
-.btn:hover{background:var(--accent-ink);transform:translateY(-2px)}
+.serif{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:var(--brand-soft)}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--text-3);text-transform:uppercase}
+.btn{border:0;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:var(--pill);background:var(--brand);color:var(--white);font-weight:600;font-size:1rem;transition:transform .5s var(--spring),background .3s}
+.btn:hover{background:var(--brand-ink);transform:translateY(-2px)}
 .btn:active{transform:translateY(1px)}
 .btn .a{transition:transform .5s var(--spring)}
 .btn:hover .a{transform:translateX(4px)}
-.btn-light{background:var(--surface);color:var(--ink)}
-.btn-light:hover{background:var(--lilac);color:var(--ink)}
-.btn svg{width:20px;height:20px;flex:none}
+.btn-out{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.28)}
+.btn-out:hover{background:var(--white);color:var(--bg)}
 
-/* nav */
+/* faixa do topo */
+.strip{background:var(--brand);color:var(--white);text-align:center;font-family:var(--mono);font-size:.8rem;letter-spacing:.06em;padding:10px var(--gut)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
-.logo{display:flex;align-items:center;gap:9px;font-family:var(--brand);font-weight:700;font-size:1.25rem}
-.nav .tag{font-family:var(--mono);font-size:.8rem;color:var(--ink-2)}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--logo);font-weight:700;font-size:1.25rem}
 
-/* hero roxa com bolhas */
-.hero-panel{position:relative;isolation:isolate;overflow:hidden;border-radius:var(--r-lg);background-color:var(--violet-2);background-image:linear-gradient(135deg,var(--violet-1) 0%,var(--violet-2) 48%,var(--violet-3) 100%);color:var(--on-night);min-height:min(720px,calc(100svh - 92px));display:flex;align-items:center}
-.blob{position:absolute;border-radius:50%;filter:blur(50px);opacity:.95;will-change:transform;z-index:0}
-.b1{width:520px;height:520px;left:-120px;top:-160px;background:radial-gradient(circle,#6331FB,transparent 70%);animation:d1 16s ease-in-out infinite alternate}
-.b2{width:460px;height:460px;right:18%;bottom:-200px;background:radial-gradient(circle,#8B5CF6,transparent 70%);animation:d2 19s ease-in-out infinite alternate}
-.b3{width:380px;height:380px;right:-80px;top:8%;background:radial-gradient(circle,#3B82F6,transparent 70%);opacity:.5;animation:d3 22s ease-in-out infinite alternate}
-@keyframes d1{to{transform:translate(180px,120px) scale(1.15)}}
-@keyframes d2{to{transform:translate(-160px,-140px) scale(.9)}}
-@keyframes d3{to{transform:translate(-120px,160px) scale(1.2)}}
-.hero-in{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--s6);align-items:center;padding:var(--s6) clamp(24px,4.5vw,64px)}
-.flag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.82rem;letter-spacing:.04em;padding:8px 14px;border-radius:var(--pill);background:rgba(244,244,245,.1);box-shadow:inset 0 0 0 1px rgba(244,244,245,.25)}
-.flag i{width:8px;height:8px;border-radius:50%;background:var(--lilac);animation:pulse 2.2s infinite}
-@keyframes pulse{50%{opacity:.35}}
-.hero h1{font-weight:600;font-size:clamp(2.6rem,5vw,4.6rem);line-height:1.02;letter-spacing:-.045em;margin-top:var(--s4);max-width:14ch}
-.hero h1 .serif{color:var(--lilac)}
-.hero .lead{font-size:1.12rem;color:var(--on-night-2);max-width:44ch;margin-top:var(--s3)}
-.hero .btn{margin-top:var(--s5)}
-.hero .fine{display:block;margin-top:var(--s2);font-size:.86rem;color:var(--on-night-2)}
+/* hero */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:var(--s5) 0 var(--s7)}
+.glow{position:absolute;z-index:-1;border-radius:50%;filter:blur(70px);pointer-events:none;will-change:transform}
+.g1{width:620px;height:620px;left:-220px;top:-220px;background:radial-gradient(circle,rgba(99,49,251,.55),transparent 70%);animation:d1 18s ease-in-out infinite alternate}
+.g2{width:520px;height:520px;right:-160px;bottom:-260px;background:radial-gradient(circle,rgba(99,49,251,.35),transparent 70%);animation:d2 22s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(160px,120px) scale(1.1)}}
+@keyframes d2{to{transform:translate(-140px,-100px) scale(.92)}}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--s6);align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
+.kicker b{background:var(--white);color:var(--bg);padding:4px 10px;border-radius:6px;font-weight:500}
+.hero h1{font-weight:700;font-size:clamp(2.8rem,5.4vw,5rem);line-height:1;letter-spacing:-.05em;margin-top:var(--s4)}
+.hero h1 .num{color:var(--brand-soft)}
+.hero .lead{font-size:1.12rem;color:var(--text-2);max-width:46ch;margin-top:var(--s3)}
+.prices{list-style:none;margin-top:var(--s5);max-width:520px;border-top:1px solid var(--line)}
+.prices li{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s2);padding:14px 0;border-bottom:1px solid var(--line)}
+.prices span{color:var(--text-2)}
+.prices s{color:var(--text-3);margin-right:10px;font-size:.92rem}
+.prices b{font-weight:600;color:var(--text)}
+.until{display:block;margin-top:var(--s3)}
 
-.off{background:var(--surface);color:var(--ink);border-radius:var(--r-lg);padding:var(--s5) var(--s4);text-align:left;box-shadow:0 30px 60px -24px rgba(11,11,18,.55)}
-.off .big{font-weight:700;font-size:clamp(5rem,9vw,8rem);line-height:.85;letter-spacing:-.06em;color:var(--accent)}
-.off .big small{font-size:.38em;letter-spacing:-.03em;margin-left:4px;color:var(--ink)}
-.off p{color:var(--ink-2);margin-top:var(--s2)}
-.off ul{list-style:none;margin-top:var(--s3);border-top:1px solid var(--line)}
-.off li{display:flex;justify-content:space-between;gap:var(--s2);padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.off li b{font-weight:600}
-.off li s{color:var(--muted);margin-right:8px}
-.off .until{display:block;margin-top:var(--s3);font-family:var(--mono);font-size:.8rem;color:var(--accent)}
+/* formulário */
+.form{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s4);box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.form .top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s2)}
+.form h2{font-weight:600;font-size:1.5rem;letter-spacing:-.03em;line-height:1.15}
+.tag{flex:none;font-family:var(--mono);font-size:.72rem;color:var(--bg);background:var(--brand-soft);padding:5px 10px;border-radius:var(--pill);white-space:nowrap}
+.form .sub{color:var(--text-2);font-size:.92rem;margin:6px 0 var(--s3)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fr{margin-bottom:14px}
+.fr label{display:block;font-size:.82rem;font-weight:500;color:var(--text);margin-bottom:6px}
+.fr input,.fr select{width:100%;height:50px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg-3);font:inherit;font-size:.95rem;color:var(--text);transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.fr input::placeholder{color:var(--text-3)}
+.fr select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5l5-5' stroke='%23B4B4BF' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.fr select option{background:var(--bg-2);color:var(--text)}
+.fr input:focus,.fr select:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px rgba(99,49,251,.3)}
+.form .btn{width:100%;margin-top:6px}
+.form .fine{display:block;text-align:center;margin-top:12px;font-size:.8rem;color:var(--text-3)}
+.form .alt{display:block;text-align:center;margin-top:8px;font-size:.86rem;color:var(--text-2)}
+.form .alt a{color:var(--brand-soft);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+/* seções */
+.sec{padding:var(--s8) 0;border-top:1px solid var(--line)}
+.head{max-width:760px;margin-bottom:var(--s6)}
+.h2{font-weight:700;font-size:clamp(2.1rem,3.8vw,3.4rem);line-height:1.05;letter-spacing:-.045em;margin-top:var(--s2)}
+.head p{color:var(--text-2);margin-top:var(--s3);max-width:54ch}
+
+/* benefícios: bento assimétrico */
+.ben{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s2)}
+.b{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s4);display:flex;flex-direction:column;transition:transform .6s var(--spring),border-color .3s}
+.b:hover{transform:translateY(-2px);border-color:rgba(99,49,251,.5)}
+.b .n{font-family:var(--mono);font-size:.76rem;color:var(--brand-soft)}
+.b h3{font-weight:600;font-size:1.35rem;letter-spacing:-.025em;line-height:1.2;margin-top:var(--s2)}
+.b p{color:var(--text-2);margin-top:10px;font-size:.96rem}
+.b1{grid-column:span 3}.b2{grid-column:span 3}.b3{grid-column:span 2}.b4{grid-column:span 2}.b5{grid-column:span 2}
+.b.hl{background:var(--brand);border-color:var(--brand)}
+.b.hl .n{color:var(--white)}
+.b.hl p{color:var(--white)}
+.big{font-weight:700;font-size:clamp(2.6rem,4.6vw,3.8rem);letter-spacing:-.05em;line-height:1;margin-top:var(--s2)}
+.faces{display:flex;margin-top:auto;padding-top:var(--s3)}
+.faces img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-2);margin-left:-12px}
+.faces img:first-child{margin-left:0}
 
 /* planos */
-.sec{padding:var(--s8) 0}
-.head{max-width:760px;margin-bottom:var(--s6)}
-h2{font-weight:600;font-size:clamp(2.1rem,3.8vw,3.4rem);line-height:1.06;letter-spacing:-.04em}
-h2 .serif{color:var(--accent)}
-.head p{color:var(--ink-2);margin-top:var(--s3);max-width:52ch}
-.plans{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:var(--s2);align-items:stretch}
-.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s5) var(--s4);display:flex;flex-direction:column;transition:transform .6s var(--spring)}
-.plan:hover{transform:translateY(-2px)}
-.plan.rec{background:var(--night);color:var(--on-night);border-color:var(--night)}
-.plan .tagl{font-family:var(--mono);font-size:.76rem;color:var(--muted)}
-.plan.rec .tagl{color:var(--lilac)}
-.plan h3{font-weight:600;font-size:1.6rem;letter-spacing:-.03em;margin-top:var(--s2)}
-.plan .de{margin-top:var(--s3);color:var(--muted);font-size:.95rem}
-.plan.rec .de{color:var(--on-night-2)}
+.plans{display:grid;grid-template-columns:1fr 1.06fr 1fr;gap:var(--s2);align-items:stretch}
+.plan{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s5) var(--s4);display:flex;flex-direction:column;position:relative}
+.plan.rec{border:1.5px solid var(--brand)}
+.plan .tl{font-family:var(--mono);font-size:.74rem;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em}
+.plan .rb{position:absolute;top:-13px;left:var(--s4);font-family:var(--mono);font-size:.72rem;background:var(--brand);color:var(--white);padding:5px 12px;border-radius:var(--pill)}
+.plan h3{font-weight:600;font-size:1.55rem;letter-spacing:-.03em;margin-top:var(--s2)}
+.plan .de{margin-top:var(--s3);color:var(--text-3);font-size:.95rem}
 .plan .por{white-space:nowrap;font-weight:700;font-size:clamp(1.9rem,2.6vw,2.4rem);letter-spacing:-.04em;line-height:1;margin-top:6px}
-.plan .por small{font-size:.42em;font-weight:500;color:var(--muted);letter-spacing:0}
-.plan.rec .por small{color:var(--on-night-2)}
-.plan .vista{font-size:.92rem;color:var(--ink-2);margin-top:8px}
-.plan.rec .vista{color:var(--on-night-2)}
+.plan .por small{font-size:.42em;font-weight:500;color:var(--text-3);letter-spacing:0}
+.plan .vista{font-size:.92rem;color:var(--text-2);margin-top:8px}
 .plan ul{list-style:none;margin:var(--s4) 0;border-top:1px solid var(--line)}
-.plan.rec ul{border-color:rgba(244,244,245,.14)}
-.plan li{padding:10px 0;border-bottom:1px solid var(--line);font-size:.95rem;color:var(--ink-2)}
-.plan.rec li{border-color:rgba(244,244,245,.14);color:var(--on-night-2)}
+.plan li{padding:10px 0;border-bottom:1px solid var(--line);font-size:.95rem;color:var(--text-2)}
 .plan .btn{margin-top:auto;width:100%}
-.plan .btn-out{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
-.plan .btn-out:hover{background:var(--ink);color:var(--surface)}
-.badge{display:inline-block;font-family:var(--mono);font-size:.72rem;padding:4px 10px;border-radius:var(--pill);background:var(--lilac);color:var(--night);margin-left:8px;vertical-align:middle}
-.note{margin-top:var(--s4);font-size:.9rem;color:var(--muted);max-width:80ch}
-
-/* como funciona */
-.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--s7);align-items:start}
-.rows{list-style:none;border-top:1px solid var(--line)}
-.rows li{display:grid;grid-template-columns:56px 1fr;gap:var(--s3);padding:var(--s4) 0;border-bottom:1px solid var(--line)}
-.rows h3{font-weight:600;font-size:1.3rem;letter-spacing:-.02em}
-.rows p{color:var(--ink-2);margin-top:6px;max-width:52ch}
-.team{display:flex;align-items:center;gap:14px;margin-top:var(--s4)}
-.faces{display:flex;flex:none}
-.faces img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--canvas);margin-left:-12px}
-.faces img:first-child{margin-left:0}
-.team span{font-size:.92rem;color:var(--ink-2)}
+.note{margin-top:var(--s4);font-size:.9rem;color:var(--text-3);max-width:80ch}
 
 /* faq */
 .faq{max-width:860px}
 .qa{border-top:1px solid var(--line);padding:var(--s3) 0}
 .qa:last-child{border-bottom:1px solid var(--line)}
-.qa h3{font-weight:600;font-size:1.15rem;letter-spacing:-.01em}
-.qa p{color:var(--ink-2);margin-top:8px}
+.qa h3{font-weight:600;font-size:1.12rem}
+.qa p{color:var(--text-2);margin-top:8px}
 
 /* final */
-.final{position:relative;isolation:isolate;overflow:hidden;border-radius:var(--r-lg);background-color:var(--violet-2);background-image:linear-gradient(135deg,var(--violet-1),var(--violet-3));color:var(--on-night);padding:var(--s7) clamp(24px,4.5vw,64px)}
-.final h2{color:var(--on-night);max-width:16ch}
-.final h2 .serif{color:var(--lilac)}
-.final p{color:var(--on-night-2);margin-top:var(--s3);max-width:46ch}
+.final{position:relative;isolation:isolate;overflow:hidden;border-radius:var(--r-lg);background:var(--bg-2);border:1px solid var(--line);padding:var(--s7) clamp(24px,4.5vw,64px)}
+.final .g1{left:auto;right:-200px;top:-260px}
+.final p{color:var(--text-2);margin-top:var(--s3);max-width:46ch}
 .final .btn{margin-top:var(--s4)}
-.final > *{position:relative;z-index:2}
-.foot{padding:var(--s4) 0 var(--s5);font-size:.86rem;color:var(--ink-2)}
+.foot{padding:var(--s5) 0;font-size:.86rem;color:var(--text-2)}
 .foot .wrap{display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
 .foot a{text-decoration:underline}
 
-@media(prefers-reduced-motion:reduce){.blob,.flag i{animation:none}}
+@media(prefers-reduced-motion:reduce){.glow{animation:none}}
 @media(max-width:900px){
-  .hero-in,.split{grid-template-columns:1fr;gap:var(--s5)}
-  .hero-in{padding:var(--s5) var(--s3)}
-  .hero-panel{min-height:0}
-  .plans{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1fr;gap:var(--s5)}
+  .hero{padding-top:var(--s3)}
+  .prices{display:none}
+  .ben{grid-template-columns:1fr}
+  .b1,.b2,.b3,.b4,.b5{grid-column:auto}
+  .plans{grid-template-columns:1fr;gap:var(--s4)}
   .plan.rec{order:-1}
+  .f2{grid-template-columns:1fr}
   .btn{width:100%}
-  .nav .tag{display:none}
+  .nav .btn{width:auto}
   .sec{padding:var(--s7) 0}
-  .blob{filter:blur(40px)}
 }
 </style>
 </head>
 <body data-pagina="black-friday">
 
+<div class="strip">BLACK FRIDAY UPRIGHT · 40% DE DESCONTO NOS PLANOS · ATÉ 30/11</div>
 <nav class="nav"><div class="wrap">
-  <a href="/" class="logo"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M12 12v14a12 12 0 0 0 24 0v-7" stroke="var(--ink)" stroke-width="8" stroke-linecap="round"/><path d="M36 19v-8.5M29.5 15.5 36 9l6.5 6.5" stroke="var(--accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>upright</a>
-  <span class="tag">Black Friday · até 30 de novembro</span>
+  <a href="/" class="logo"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M12 12v14a12 12 0 0 0 24 0v-7" stroke="var(--white)" stroke-width="8" stroke-linecap="round"/><path d="M36 19v-8.5M29.5 15.5 36 9l6.5 6.5" stroke="var(--brand-soft)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>upright</a>
+  <a href="#agendar" class="btn btn-out" style="min-height:44px;padding:0 20px;font-size:.88rem">Garantir o desconto</a>
 </div></nav>
 
-<header class="hero"><div class="wrap">
-  <div class="hero-panel">
-    <span class="blob b1" aria-hidden="true"></span><span class="blob b2" aria-hidden="true"></span><span class="blob b3" aria-hidden="true"></span>
-    <div class="hero-in">
-      <div>
-        <span class="flag"><i aria-hidden="true"></i>Black Friday Upright · até 30/11</span>
-        <h1>40% de desconto para estruturar <span class="serif">a sua empresa.</span></h1>
-        <p class="lead">Consultoria empresarial para pequenas e médias empresas: gestão, processos e pessoas organizados, do diagnóstico à implantação. Desconto nos três planos, parcelados em até 12x.</p>
-        <a href="#" data-wa class="btn btn-light"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.03c0-5.2 4.24-9.43 9.45-9.43a9.4 9.4 0 0 1 6.68 2.77 9.38 9.38 0 0 1 2.76 6.68c0 5.2-4.24 9.44-9.45 9.44m8.04-17.48A11.3 11.3 0 0 0 12.05.68C5.78.68.68 5.78.68 12.05c0 2 .52 3.96 1.52 5.68L.58 23.32l5.73-1.5a11.33 11.33 0 0 0 5.73 1.46h.01c6.27 0 11.37-5.1 11.37-11.37 0-3.04-1.18-5.9-3.33-8.04"/></svg>Garantir os 40% pelo WhatsApp <span class="a">→</span></a>
-        <span class="fine">Conversa com a Giovanna · resposta no mesmo dia útil</span>
-      </div>
-      <div class="off">
-        <div class="big">40<small>% off</small></div>
-        <p>Sobre a tabela vigente dos planos de estruturação.</p>
-        <ul>
-          <li><span>Essencial</span><span><s>R$ 5.900</s><b>R$ 3.540</b></span></li>
-          <li><span>Estruturação Completa</span><span><s>R$ 18.900</s><b>R$ 11.340</b></span></li>
-          <li><span>Transformação</span><span><s>R$ 23.988</s><b>R$ 14.392,80</b></span></li>
-        </ul>
-        <span class="until">Válido para contratos fechados até 30/11/2026</span>
-      </div>
+<header class="hero">
+  <span class="glow g1" aria-hidden="true"></span><span class="glow g2" aria-hidden="true"></span>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker"><b>Black Friday</b> até 30 de novembro</span>
+      <h1><span class="num">40% off</span> para estruturar <span class="serif">a sua empresa.</span></h1>
+      <p class="lead">Consultoria empresarial para pequenas e médias empresas: gestão, processos e pessoas organizados, do diagnóstico à implantação. Desconto nos três planos, parcelados em até 12x.</p>
+      <ul class="prices">
+        <li><span>Essencial</span><span><s>R$ 5.900</s><b>R$ 3.540</b></span></li>
+        <li><span>Estruturação Completa</span><span><s>R$ 18.900</s><b>R$ 11.340</b></span></li>
+        <li><span>Transformação</span><span><s>R$ 23.988</s><b>R$ 14.392,80</b></span></li>
+      </ul>
+      <span class="mono until">Válido para contratos fechados até 30/11/2026</span>
     </div>
+
+    <form class="form" id="cform">
+      <div class="top"><h2 id="agendar">Garanta os 40% de desconto</h2><span class="tag">até 30/11</span></div>
+      <p class="sub">Preencha e a conversa abre no WhatsApp com a Giovanna, com a sua mensagem pronta.</p>
+      <div class="f2">
+        <div class="fr"><label for="nome">Nome</label><input id="nome" name="nome" required autocomplete="name" placeholder="Seu nome"></div>
+        <div class="fr"><label for="empresa">Empresa</label><input id="empresa" name="empresa" required autocomplete="organization" placeholder="Nome da empresa"></div>
+      </div>
+      <div class="fr"><label for="cargo">Seu cargo</label>
+        <select id="cargo" name="cargo" required><option value="">Selecione</option><option>Sócio(a) ou proprietário(a)</option><option>Diretor(a)</option><option>Gerente-geral</option><option>Gestor(a) de área</option><option>Outro</option></select></div>
+      <div class="fr"><label for="plano">Plano de interesse</label>
+        <select id="plano" name="plano" required><option value="">Selecione</option><option>Essencial</option><option>Estruturação Completa</option><option>Transformação</option><option>Ainda não sei, quero ajuda para escolher</option></select></div>
+      <button type="submit" class="btn">Garantir os 40% no WhatsApp <span class="a">→</span></button>
+      <span class="fine">Resposta no mesmo dia útil · sem compromisso</span>
+      <span class="alt">Prefere chamar direto? <a href="#" data-wa>Abrir o WhatsApp</a></span>
+    </form>
   </div>
-</div></header>
+</header>
 
 <main>
+<section class="sec" id="beneficios"><div class="wrap">
+  <div class="head">
+    <span class="mono">Por que a Upright</span>
+    <h2 class="h2">O que você leva <span class="serif">além do desconto.</span></h2>
+  </div>
+  <div class="ben">
+    <div class="b b1"><span class="n">01</span><h3>Quem diagnostica é quem implanta.</h3><p>Quatro diretoras conduzem o seu projeto do começo ao fim. Nada de sênior só na venda e júnior no campo.</p><div class="faces"><img src="assets/img/giovanna-willwohl-fundadora-160.webp" alt="Giovanna Willwohl"><img src="assets/img/amara-fernanda-160.webp" alt="Amara Fernanda"><img src="assets/img/gisele.jpg" alt="Gisele Willwohl"><img src="assets/img/fatima-160.webp" alt="Fátima"></div></div>
+    <div class="b b2 hl"><span class="n">02 · Resultado real</span><div class="big">18% → 1,4%</div><p>Queda no turnover anual de um cliente industrial depois de estruturar cargos, liderança e rotina.</p></div>
+    <div class="b b3"><span class="n">03</span><h3>A desorganização em reais.</h3><p>O diagnóstico calcula quanto a falta de processo custa por mês, com memória de cálculo.</p></div>
+    <div class="b b4"><span class="n">04</span><h3>Implantação junto com a equipe.</h3><p>Ciclos de 15 dias, com responsável e prazo, até a rotina rodar sem os sócios.</p></div>
+    <div class="b b5"><span class="n">05</span><h3>Preço aberto, em até 12x.</h3><p>Você sabe quanto custa antes de conversar. PIX, boleto ou cartão.</p></div>
+  </div>
+</div></section>
+
 <section class="sec" id="planos"><div class="wrap">
   <div class="head">
-    <p class="mono" style="margin-bottom:var(--s3)">Planos com 40% de desconto</p>
-    <h2>Escolha por onde a sua estrutura <span class="serif">começa.</span></h2>
+    <span class="mono">Planos com 40% off</span>
+    <h2 class="h2">Escolha por onde a sua estrutura <span class="serif">começa.</span></h2>
     <p>Valores a partir de. O escopo final sai do diagnóstico, de acordo com as frentes que a sua empresa precisa.</p>
   </div>
   <div class="plans">
     <div class="plan">
-      <span class="tagl">Uma frente, a mais crítica</span>
+      <span class="tl">Uma frente, a mais crítica</span>
       <h3>Essencial</h3>
       <div class="de">de <s>R$ 5.900</s> por</div>
       <div class="por">12x R$ 295 <small>/mês</small></div>
       <div class="vista">ou R$ 3.540 à vista</div>
       <ul><li>Diagnóstico focado na frente que mais dói</li><li>Plano de ação priorizado</li><li>Ciclos iniciais de acompanhamento</li></ul>
-      <a href="#" data-wa data-plano="Essencial" class="btn btn-out">Quero o Essencial</a>
+      <a href="#agendar" data-plano="Essencial" class="btn btn-out">Quero o Essencial</a>
     </div>
     <div class="plan rec">
-      <span class="tagl">As frentes que o diagnóstico apontar <span class="badge">recomendado</span></span>
+      <span class="rb">Recomendado</span>
+      <span class="tl">As frentes que o diagnóstico apontar</span>
       <h3>Estruturação Completa</h3>
       <div class="de">de <s>R$ 18.900</s> por</div>
       <div class="por">12x R$ 945 <small>/mês</small></div>
       <div class="vista">ou R$ 11.340 à vista</div>
       <ul><li>Diagnóstico completo das 6 frentes</li><li>Processos e indicadores implantados</li><li>Líderes formados e equipe realocada</li><li>Acompanhamento por ciclos até rodar sozinho</li></ul>
-      <a href="#" data-wa data-plano="Estruturação Completa" class="btn">Quero esse plano <span class="a">→</span></a>
+      <a href="#agendar" data-plano="Estruturação Completa" class="btn">Quero esse plano <span class="a">→</span></a>
     </div>
     <div class="plan">
-      <span class="tagl">Estrutura + adequação</span>
+      <span class="tl">Estrutura + adequação</span>
       <h3>Transformação</h3>
       <div class="de">de <s>R$ 23.988</s> por</div>
       <div class="por">12x R$ 1.199,40 <small>/mês</small></div>
       <div class="vista">ou R$ 14.392,80 à vista</div>
       <ul><li>Tudo da Estruturação Completa</li><li>Adequação a ESG, LGPD e compliance</li><li>Suporte à certificação GPTW</li><li>Governança e matriz de risco</li></ul>
-      <a href="#" data-wa data-plano="Transformação" class="btn btn-out">Quero a Transformação</a>
+      <a href="#agendar" data-plano="Transformação" class="btn btn-out">Quero a Transformação</a>
     </div>
   </div>
   <p class="note">Desconto de 40% sobre a tabela vigente dos planos Essencial, Estruturação Completa e Transformação, para contratos fechados até 30/11/2026. O Diagnóstico Upright segue em 3x R$ 599 e é abatido do projeto. Parcelamento em até 12x · PIX, boleto ou cartão.</p>
 </div></section>
 
-<section class="sec" style="padding-top:0"><div class="wrap split">
-  <div>
-    <p class="mono" style="margin-bottom:var(--s3)">Como funciona</p>
-    <h2>Da conversa à empresa <span class="serif">rodando sem você.</span></h2>
-    <div class="team"><div class="faces"><img src="assets/img/giovanna-willwohl-fundadora-160.webp" alt="Giovanna Willwohl"><img src="assets/img/amara-fernanda-160.webp" alt="Amara Fernanda"><img src="assets/img/gisele.jpg" alt="Gisele Willwohl"><img src="assets/img/fatima-160.webp" alt="Fátima"></div><span>Quatro diretoras conduzem o seu projeto, do diagnóstico à implantação.</span></div>
-  </div>
-  <ol class="rows">
-    <li><span class="mono">01</span><div><h3>Você chama no WhatsApp</h3><p>Conta o momento da empresa e agenda 45 minutos com a Giovanna, sem custo.</p></div></li>
-    <li><span class="mono">02</span><div><h3>Diagnóstico Upright</h3><p>Seis frentes, dados e entrevistas em 15 a 20 dias. Sai o plano com prioridade, prazo e preço.</p></div></li>
-    <li><span class="mono">03</span><div><h3>Implantação em ciclos</h3><p>Processos, indicadores e líderes, junto com a sua equipe, até a rotina rodar sem a gente.</p></div></li>
-  </ol>
-</div></section>
-
-<section class="sec" style="padding-top:0"><div class="wrap">
+<section class="sec"><div class="wrap">
   <div class="faq">
-    <p class="mono" style="margin-bottom:var(--s3)">Antes de chamar</p>
-    <h2 style="margin-bottom:var(--s5)">Perguntas sobre a <span class="serif">Black Friday.</span></h2>
+    <span class="mono">Antes de chamar</span>
+    <h2 class="h2" style="margin-bottom:var(--s5)">Perguntas sobre a <span class="serif">Black Friday.</span></h2>
     <div class="qa"><h3>O desconto vale para quais serviços?</h3><p>Para os três planos de estruturação: Essencial, Estruturação Completa e Transformação. O Diagnóstico Upright segue em 3x R$ 599 e é abatido do projeto.</p></div>
     <div class="qa"><h3>Até quando vale?</h3><p>Para contratos fechados até 30 de novembro de 2026.</p></div>
     <div class="qa"><h3>Posso parcelar com o desconto?</h3><p>Sim, em até 12x, por PIX, boleto ou cartão.</p></div>
-    <div class="qa"><h3>Minha empresa é pequena demais para isso?</h3><p>O critério não é tamanho, é sintoma: a empresa depende demais dos sócios ou acabou de abrir e quer nascer organizada. Se ainda não for a hora, dizemos na conversa.</p></div>
+    <div class="qa"><h3>Não sei qual plano escolher.</h3><p>Escolha "Ainda não sei" no formulário. Na conversa a Giovanna aponta o plano certo, inclusive se a resposta for "ainda nenhum".</p></div>
   </div>
 </div></section>
 
-<section class="sec" style="padding-top:0"><div class="wrap">
+<section class="sec"><div class="wrap">
   <div class="final">
-    <span class="blob b1" aria-hidden="true"></span><span class="blob b3" aria-hidden="true"></span>
-    <p class="mono" style="color:var(--lilac)">Até 30/11</p>
-    <h2>Estruture a sua empresa <span class="serif">com 40% de desconto.</span></h2>
-    <p>Chame no WhatsApp, conte o momento da empresa e a gente aponta o plano certo, inclusive se a resposta for "ainda nenhum".</p>
-    <a href="#" data-wa class="btn btn-light">Garantir os 40% pelo WhatsApp <span class="a">→</span></a>
+    <span class="glow g1" aria-hidden="true"></span>
+    <span class="mono" style="color:var(--brand-soft)">Até 30/11</span>
+    <h2 class="h2">Estruture a sua empresa <span class="serif">com 40% de desconto.</span></h2>
+    <p>Preencha o formulário e a conversa abre no WhatsApp com a sua mensagem pronta.</p>
+    <a href="#agendar" class="btn">Garantir o desconto <span class="a">→</span></a>
   </div>
 </div></section>
 </main>
@@ -270,19 +296,22 @@ h2 .serif{color:var(--accent)}
 </div></footer>
 
 <script>
-// links do WhatsApp: mensagem com a Black Friday, o plano clicado e o anúncio de origem
 (function(){
+  // botões de plano: sobem para o formulário com o plano já escolhido
+  document.querySelectorAll('[data-plano]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var s = document.getElementById('plano'); if (s) s.value = a.getAttribute('data-plano');
+    });
+  });
+  // link direto do WhatsApp: mensagem com a Black Friday e o anúncio de origem
   var ref = new URLSearchParams(location.search).get('utm_content');
   document.querySelectorAll('[data-wa]').forEach(function(a){
-    var plano = a.getAttribute('data-plano');
-    var msg = 'Olá! Vim pela Black Friday da Upright' + (ref ? ' (' + ref + ')' : '') +
-      ' e quero garantir os 40% de desconto' + (plano ? ' no plano ' + plano : '') +
-      '. Sou [cargo] na [empresa].';
+    var msg = 'Olá! Vim pela Black Friday da Upright' + (ref ? ' (' + ref + ')' : '') + ' e quero garantir os 40% de desconto. Sou [cargo] na [empresa].';
     a.href = 'https://wa.me/15126216866?text=' + encodeURIComponent(msg);
     a.target = '_blank'; a.rel = 'noopener';
   });
 })();
 </script>
-<script src="assets/main.js?v=10"></script>
+<script src="assets/main.js?v=11"></script>
 </body>
 </html>
