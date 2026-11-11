@@ -119,6 +119,7 @@ if (cf) cf.addEventListener('submit', ev => {
   const msg = `Olá! ${origem}Sou ${d.get('nome')}, ${d.get('cargo')} na ${d.get('empresa')}. `
             + (d.get('plano') ? `Plano de interesse: ${d.get('plano')}. ` : '')
             + (d.get('tempo') ? `Isso acontece há: ${d.get('tempo')}. ` : '')
+            + (d.get('dependencia') ? `Quanto a operação depende de mim: ${d.get('dependencia')}. ` : '')
             + `${d.get('mensagem') || 'Quero agendar os 45 minutos.'}`;
   window.open('https://wa.me/15126216866?text=' + encodeURIComponent(msg), '_blank', 'noopener');
 });
