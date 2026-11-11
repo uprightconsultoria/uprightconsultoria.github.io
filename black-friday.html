@@ -74,7 +74,7 @@ img{display:block;max-width:100%}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--s6);align-items:center}
 .kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
 .kicker b{background:var(--white);color:var(--bg);padding:4px 10px;border-radius:6px;font-weight:500}
-.hero h1{font-weight:700;font-size:clamp(2.8rem,5.4vw,5rem);line-height:1;letter-spacing:-.05em;margin-top:var(--s4)}
+.hero h1{font-weight:700;font-size:clamp(2.5rem,4.6vw,4.3rem);line-height:1;letter-spacing:-.05em;margin-top:var(--s4)}
 .hero h1 .num{color:var(--brand-soft)}
 .hero .lead{font-size:1.12rem;color:var(--text-2);max-width:46ch;margin-top:var(--s3)}
 .prices{list-style:none;margin-top:var(--s5);max-width:520px;border-top:1px solid var(--line)}
@@ -109,21 +109,35 @@ img{display:block;max-width:100%}
 .h2{font-weight:700;font-size:clamp(2.1rem,3.8vw,3.4rem);line-height:1.05;letter-spacing:-.045em;margin-top:var(--s2)}
 .head p{color:var(--text-2);margin-top:var(--s3);max-width:54ch}
 
-/* benefícios: bento assimétrico */
-.ben{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s2)}
-.b{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s4);display:flex;flex-direction:column;transition:transform .6s var(--spring),border-color .3s}
-.b:hover{transform:translateY(-2px);border-color:rgba(99,49,251,.5)}
-.b .n{font-family:var(--mono);font-size:.76rem;color:var(--brand-soft)}
-.b h3{font-weight:600;font-size:1.35rem;letter-spacing:-.025em;line-height:1.2;margin-top:var(--s2)}
-.b p{color:var(--text-2);margin-top:10px;font-size:.96rem}
-.b1{grid-column:span 3}.b2{grid-column:span 3}.b3{grid-column:span 2}.b4{grid-column:span 2}.b5{grid-column:span 2}
-.b.hl{background:var(--brand);border-color:var(--brand)}
-.b.hl .n{color:var(--white)}
-.b.hl p{color:var(--white)}
-.big{font-weight:700;font-size:clamp(2.6rem,4.6vw,3.8rem);letter-spacing:-.05em;line-height:1;margin-top:var(--s2)}
-.faces{display:flex;margin-top:auto;padding-top:var(--s3)}
-.faces img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--bg-2);margin-left:-12px}
+/* benefícios */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s5);border-top:1px solid var(--line)}
+.w{display:grid;grid-template-columns:48px 1fr;gap:var(--s2);padding:var(--s4) 0;border-bottom:1px solid var(--line)}
+.w .n{font-family:var(--mono);font-size:.8rem;color:var(--brand-soft);padding-top:6px}
+.w h3{font-weight:600;font-size:1.35rem;letter-spacing:-.025em;line-height:1.2}
+.w p{color:var(--text-2);margin-top:10px;font-size:.98rem}
+.w p b{color:var(--text);font-weight:600}
+.w .gain{color:var(--text)}
+.w .gain b{color:var(--brand-soft)}
+.faces{display:flex;margin-top:var(--s2)}
+.faces img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--bg);margin-left:-10px}
 .faces img:first-child{margin-left:0}
+.roi{margin-top:var(--s6);background:var(--brand);border-radius:var(--r-lg);padding:var(--s5);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:var(--s5);align-items:center;color:var(--white)}
+.roi h3{font-weight:700;font-size:clamp(1.6rem,2.6vw,2.2rem);letter-spacing:-.035em;line-height:1.1;margin-top:var(--s2)}
+.roi p{margin-top:var(--s2);max-width:56ch}
+.roi p b{font-weight:700}
+.vs{display:grid;gap:var(--s2)}
+.vs div{background:var(--bg);border-radius:var(--r);padding:var(--s3)}
+.vs span{display:block;font-size:.88rem;color:var(--text-2)}
+.vs b{display:block;font-weight:700;font-size:1.8rem;letter-spacing:-.03em;margin-top:4px;color:var(--text)}
+.vs div:last-child b{color:var(--brand-soft)}
+.fit{margin-top:var(--s6);display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.fit > div{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s4)}
+.fit h3{font-weight:600;font-size:1.2rem}
+.fit ul{list-style:none;margin-top:var(--s2)}
+.fit li{padding:10px 0 10px 22px;border-top:1px solid var(--line);color:var(--text-2);position:relative}
+.fit li::before{content:"";position:absolute;left:0;top:19px;width:10px;height:2px;background:var(--brand-soft)}
+.fit > div:last-child li::before{background:var(--text-3)}
+.cta-row{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s5);flex-wrap:wrap}
 
 /* planos */
 .plans{display:grid;grid-template-columns:1fr 1.06fr 1fr;gap:var(--s2);align-items:stretch}
@@ -161,9 +175,11 @@ img{display:block;max-width:100%}
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:var(--s5)}
   .hero{padding-top:var(--s3)}
-  .prices{display:none}
-  .ben{grid-template-columns:1fr}
-  .b1,.b2,.b3,.b4,.b5{grid-column:auto}
+  .prices{margin-top:var(--s4)}
+  .prices li{font-size:.92rem;padding:11px 0}
+  .prices s{display:none}
+  .why,.roi,.fit{grid-template-columns:1fr}
+  .roi{padding:var(--s4)}
   .plans{grid-template-columns:1fr;gap:var(--s4)}
   .plan.rec{order:-1}
   .f2{grid-template-columns:1fr}
@@ -178,7 +194,7 @@ img{display:block;max-width:100%}
 <div class="strip">BLACK FRIDAY UPRIGHT · 40% DE DESCONTO NOS PLANOS · ATÉ 30/11</div>
 <nav class="nav"><div class="wrap">
   <a href="/" class="logo"><svg width="26" height="26" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M12 12v14a12 12 0 0 0 24 0v-7" stroke="var(--white)" stroke-width="8" stroke-linecap="round"/><path d="M36 19v-8.5M29.5 15.5 36 9l6.5 6.5" stroke="var(--brand-soft)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>upright</a>
-  <a href="#agendar" class="btn btn-out" style="min-height:44px;padding:0 20px;font-size:.88rem">Garantir o desconto</a>
+  <a href="#" data-wa class="btn btn-out" style="min-height:44px;padding:0 20px;font-size:.88rem">Garantir o desconto</a>
 </div></nav>
 
 <header class="hero">
@@ -186,12 +202,12 @@ img{display:block;max-width:100%}
   <div class="wrap hero-grid">
     <div>
       <span class="kicker"><b>Black Friday</b> até 30 de novembro</span>
-      <h1><span class="num">40% off</span> para estruturar <span class="serif">a sua empresa.</span></h1>
+      <h1>Consultoria empresarial com <span class="num">40% off</span> <span class="serif">para estruturar a sua empresa.</span></h1>
       <p class="lead">Consultoria empresarial para pequenas e médias empresas: gestão, processos e pessoas organizados, do diagnóstico à implantação. Desconto nos três planos, parcelados em até 12x.</p>
       <ul class="prices">
-        <li><span>Essencial</span><span><s>R$ 5.900</s><b>R$ 3.540</b></span></li>
-        <li><span>Estruturação Completa</span><span><s>R$ 18.900</s><b>R$ 11.340</b></span></li>
-        <li><span>Transformação</span><span><s>R$ 23.988</s><b>R$ 14.392,80</b></span></li>
+        <li><span>Essencial</span><span><s>12x R$ 491,67</s><b>12x R$ 295</b></span></li>
+        <li><span>Estruturação Completa</span><span><s>12x R$ 1.575</s><b>12x R$ 945</b></span></li>
+        <li><span>Transformação</span><span><s>12x R$ 1.999</s><b>12x R$ 1.199,40</b></span></li>
       </ul>
       <span class="mono until">Válido para contratos fechados até 30/11/2026</span>
     </div>
@@ -217,16 +233,76 @@ img{display:block;max-width:100%}
 <main>
 <section class="sec" id="beneficios"><div class="wrap">
   <div class="head">
-    <span class="mono">Por que a Upright</span>
+    <span class="mono">Por que contratar a Upright</span>
     <h2 class="h2">O que você leva <span class="serif">além do desconto.</span></h2>
+    <p>Desconto só vale a pena se o serviço resolve. Estes são os seis motivos pelos quais donos de pequenas e médias empresas contratam a Upright, e o que muda na rotina de quem contrata.</p>
   </div>
-  <div class="ben">
-    <div class="b b1"><span class="n">01</span><h3>Quem diagnostica é quem implanta.</h3><p>Quatro diretoras conduzem o seu projeto do começo ao fim. Nada de sênior só na venda e júnior no campo.</p><div class="faces"><img src="assets/img/giovanna-willwohl-fundadora-160.webp" alt="Giovanna Willwohl"><img src="assets/img/amara-fernanda-160.webp" alt="Amara Fernanda"><img src="assets/img/gisele.jpg" alt="Gisele Willwohl"><img src="assets/img/fatima-160.webp" alt="Fátima"></div></div>
-    <div class="b b2 hl"><span class="n">02 · Resultado real</span><div class="big">18% → 1,4%</div><p>Queda no turnover anual de um cliente industrial depois de estruturar cargos, liderança e rotina.</p></div>
-    <div class="b b3"><span class="n">03</span><h3>A desorganização em reais.</h3><p>O diagnóstico calcula quanto a falta de processo custa por mês, com memória de cálculo.</p></div>
-    <div class="b b4"><span class="n">04</span><h3>Implantação junto com a equipe.</h3><p>Ciclos de 15 dias, com responsável e prazo, até a rotina rodar sem os sócios.</p></div>
-    <div class="b b5"><span class="n">05</span><h3>Preço aberto, em até 12x.</h3><p>Você sabe quanto custa antes de conversar. PIX, boleto ou cartão.</p></div>
+
+  <div class="why">
+    <article class="w">
+      <span class="n">01</span>
+      <div><h3>Uma empresa que roda sem depender de você.</h3>
+      <p class="pr"><b>Na prática:</b> definimos quem decide o quê, escrevemos os processos com quem executa e montamos as reuniões que terminam em decisão.</p>
+      <p class="gain"><b>Você ganha:</b> a sua agenda de volta. As decisões do dia a dia param de esperar por você.</p></div>
+    </article>
+    <article class="w">
+      <span class="n">02</span>
+      <div><h3>Saber quanto a desorganização custa, em reais.</h3>
+      <p class="pr"><b>Na prática:</b> a nossa diretora financeira calcula o custo do retrabalho, das saídas de funcionários e do tempo dos sócios, com a memória de cálculo na sua mão.</p>
+      <p class="gain"><b>Você ganha:</b> um número para decidir onde investir primeiro, em vez de achismo.</p></div>
+    </article>
+    <article class="w">
+      <span class="n">03</span>
+      <div><h3>Diagnóstico com dado, em 15 a 20 dias.</h3>
+      <p class="pr"><b>Na prática:</b> seis frentes analisadas (estrutura, dependência dos sócios, liderança, processos, pessoas e estratégia), com entrevistas e dados da sua operação.</p>
+      <p class="gain"><b>Você ganha:</b> um plano com prioridade, responsável, prazo e preço. Nada de relatório de gaveta.</p></div>
+    </article>
+    <article class="w">
+      <span class="n">04</span>
+      <div><h3>Implantação junto com a sua equipe.</h3>
+      <p class="pr"><b>Na prática:</b> ciclos de 15 dias, cada um com entrega, responsável e prazo. A gente fica até a rotina funcionar, não entrega e vai embora.</p>
+      <p class="gain"><b>Você ganha:</b> mudança que acontece de verdade, porque a equipe constrói junto e sabe usar.</p></div>
+    </article>
+    <article class="w">
+      <span class="n">05</span>
+      <div><h3>Gente boa que fica.</h3>
+      <p class="pr"><b>Na prática:</b> cargos e responsabilidades claros, líderes formados para delegar e cobrar, e cada pessoa na posição em que rende mais.</p>
+      <p class="gain"><b>Você ganha:</b> menos rotatividade. Em um cliente industrial, o turnover anual caiu de 18% para 1,4%.</p></div>
+    </article>
+    <article class="w">
+      <span class="n">06</span>
+      <div><h3>Quatro diretoras sêniores no seu projeto.</h3>
+      <p class="pr"><b>Na prática:</b> quem faz o diagnóstico é quem senta com a sua equipe para implantar. Liderada por Giovanna Willwohl, engenheira civil com MBA em Liderança, mestrado em Análise de Negócios e certificações em gestão de mudança.</p>
+      <p class="gain"><b>Você ganha:</b> experiência no campo, não só na venda.</p>
+      <div class="faces"><img src="assets/img/giovanna-willwohl-fundadora-160.webp" alt="Giovanna Willwohl"><img src="assets/img/amara-fernanda-160.webp" alt="Amara Fernanda"><img src="assets/img/gisele.jpg" alt="Gisele Willwohl"><img src="assets/img/fatima-160.webp" alt="Fátima"></div></div>
+    </article>
   </div>
+
+  <div class="roi">
+    <div>
+      <span class="mono" style="color:var(--white)">Faça a conta</span>
+      <h3>Quanto custa perder um bom funcionário?</h3>
+      <p>Repor uma pessoa custa de 50% a 200% do salário anual dela, somando rescisão, vaga aberta e o tempo até o substituto render. Para um salário de R$ 4.000, são <b>de R$ 24 mil a R$ 96 mil por saída</b>.</p>
+    </div>
+    <div class="vs">
+      <div><span>Uma saída evitável</span><b>R$ 24 mil+</b></div>
+      <div><span>Essencial na Black Friday</span><b>12x R$ 295</b></div>
+    </div>
+  </div>
+
+  <div class="fit">
+    <div><h3>É para você se</h3><ul>
+      <li>tudo na empresa ainda passa por você ou pelos sócios;</li>
+      <li>o processo mora na cabeça de algumas pessoas;</li>
+      <li>gente boa está indo embora e ninguém sabe explicar por quê;</li>
+      <li>você acabou de abrir e quer a empresa organizada desde o começo.</li></ul></div>
+    <div><h3>Não é para você se</h3><ul>
+      <li>procura só um relatório para guardar;</li>
+      <li>não quer envolver a equipe na mudança;</li>
+      <li>espera resultado sem mudar a rotina da liderança.</li></ul></div>
+  </div>
+
+  <div class="cta-row"><a href="#" data-wa class="btn">Quero estruturar a minha empresa com 40% off <span class="a">→</span></a><span class="mono">Resposta no mesmo dia útil</span></div>
 </div></section>
 
 <section class="sec" id="planos"><div class="wrap">
@@ -239,30 +315,30 @@ img{display:block;max-width:100%}
     <div class="plan">
       <span class="tl">Uma frente, a mais crítica</span>
       <h3>Essencial</h3>
-      <div class="de">de <s>R$ 5.900</s> por</div>
+      <div class="de">de <s>12x R$ 491,67</s> por</div>
       <div class="por">12x R$ 295 <small>/mês</small></div>
       <div class="vista">ou R$ 3.540 à vista</div>
       <ul><li>Diagnóstico focado na frente que mais dói</li><li>Plano de ação priorizado</li><li>Ciclos iniciais de acompanhamento</li></ul>
-      <a href="#agendar" data-plano="Essencial" class="btn btn-out">Quero o Essencial</a>
+      <a href="#" data-wa data-plano="Essencial" class="btn btn-out">Quero o Essencial</a>
     </div>
     <div class="plan rec">
       <span class="rb">Recomendado</span>
       <span class="tl">As frentes que o diagnóstico apontar</span>
       <h3>Estruturação Completa</h3>
-      <div class="de">de <s>R$ 18.900</s> por</div>
+      <div class="de">de <s>12x R$ 1.575</s> por</div>
       <div class="por">12x R$ 945 <small>/mês</small></div>
       <div class="vista">ou R$ 11.340 à vista</div>
       <ul><li>Diagnóstico completo das 6 frentes</li><li>Processos e indicadores implantados</li><li>Líderes formados e equipe realocada</li><li>Acompanhamento por ciclos até rodar sozinho</li></ul>
-      <a href="#agendar" data-plano="Estruturação Completa" class="btn">Quero esse plano <span class="a">→</span></a>
+      <a href="#" data-wa data-plano="Estruturação Completa" class="btn">Quero esse plano <span class="a">→</span></a>
     </div>
     <div class="plan">
       <span class="tl">Estrutura + adequação</span>
       <h3>Transformação</h3>
-      <div class="de">de <s>R$ 23.988</s> por</div>
+      <div class="de">de <s>12x R$ 1.999</s> por</div>
       <div class="por">12x R$ 1.199,40 <small>/mês</small></div>
       <div class="vista">ou R$ 14.392,80 à vista</div>
       <ul><li>Tudo da Estruturação Completa</li><li>Adequação a ESG, LGPD e compliance</li><li>Suporte à certificação GPTW</li><li>Governança e matriz de risco</li></ul>
-      <a href="#agendar" data-plano="Transformação" class="btn btn-out">Quero a Transformação</a>
+      <a href="#" data-wa data-plano="Transformação" class="btn btn-out">Quero a Transformação</a>
     </div>
   </div>
   <p class="note">Desconto de 40% sobre a tabela vigente dos planos Essencial, Estruturação Completa e Transformação, para contratos fechados até 30/11/2026. O Diagnóstico Upright segue em 3x R$ 599 e é abatido do projeto. Parcelamento em até 12x · PIX, boleto ou cartão.</p>
@@ -284,8 +360,8 @@ img{display:block;max-width:100%}
     <span class="glow g1" aria-hidden="true"></span>
     <span class="mono" style="color:var(--brand-soft)">Até 30/11</span>
     <h2 class="h2">Estruture a sua empresa <span class="serif">com 40% de desconto.</span></h2>
-    <p>Preencha o formulário e a conversa abre no WhatsApp com a sua mensagem pronta.</p>
-    <a href="#agendar" class="btn">Garantir o desconto <span class="a">→</span></a>
+    <p>Chame no WhatsApp, conte o momento da empresa e a gente aponta o plano certo, inclusive se a resposta for "ainda nenhum".</p>
+    <a href="#" data-wa class="btn">Garantir o desconto no WhatsApp <span class="a">→</span></a>
   </div>
 </div></section>
 </main>
@@ -297,16 +373,12 @@ img{display:block;max-width:100%}
 
 <script>
 (function(){
-  // botões de plano: sobem para o formulário com o plano já escolhido
-  document.querySelectorAll('[data-plano]').forEach(function(a){
-    a.addEventListener('click', function(){
-      var s = document.getElementById('plano'); if (s) s.value = a.getAttribute('data-plano');
-    });
-  });
-  // link direto do WhatsApp: mensagem com a Black Friday e o anúncio de origem
+  // todos os botões levam ao WhatsApp: mensagem com a Black Friday, o plano e o anúncio de origem
   var ref = new URLSearchParams(location.search).get('utm_content');
   document.querySelectorAll('[data-wa]').forEach(function(a){
-    var msg = 'Olá! Vim pela Black Friday da Upright' + (ref ? ' (' + ref + ')' : '') + ' e quero garantir os 40% de desconto. Sou [cargo] na [empresa].';
+    var plano = a.getAttribute('data-plano');
+    var msg = 'Olá! Vim pela Black Friday da Upright' + (ref ? ' (' + ref + ')' : '') +
+      ' e quero garantir os 40% de desconto' + (plano ? ' no plano ' + plano : '') + '. Sou [cargo] na [empresa].';
     a.href = 'https://wa.me/15126216866?text=' + encodeURIComponent(msg);
     a.target = '_blank'; a.rel = 'noopener';
   });
